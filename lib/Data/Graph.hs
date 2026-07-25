@@ -122,8 +122,8 @@ instance Functor (SCC a) where
   fmap = second
 
 instance (Pretty a, Pretty b) => Pretty (SCC a b) where
-  pretty (Trivial a _) =
-    "Trivial" <+> pretty a
+  pretty (Trivial a v) =
+    "Trivial" <+> pretty a <+> brackets (pretty v) 
   pretty (Cycle a vs) =
     "Cycle" <+> pretty a <+> pretty (NonEmpty.map fst vs)
 
