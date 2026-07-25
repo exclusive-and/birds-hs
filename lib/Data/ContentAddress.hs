@@ -1,5 +1,7 @@
 module Data.ContentAddress where
 
+import Prelude
+
 import Control.Monad
 import Crypto.Hash
 import Crypto.Hash.Generic qualified
@@ -11,8 +13,9 @@ import Data.ByteString.Short (ShortByteString)
 import Data.Hashable
 import Data.List (sortBy)
 import Data.Text qualified as Text
-import Prelude
+
 import Prettyprinter
+
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | SHA3-512 hash of some content-addressed data.

@@ -1,13 +1,13 @@
 module Hummingbird.Query where
 
 import Prelude
-import Prettyprinter
 
 import Control.Concurrent
 import Control.Monad
 import Control.Monad.Primitive
 import Data.ContentAddress
 import Data.Dependent.HashMap (DHashMap)
+import Data.Fetch
 import Data.GADT.Compare
 import Data.GADT.Show
 import Data.Hashable
@@ -21,10 +21,11 @@ import Data.Some
 import Data.Text.Rope (Rope)
 import Data.Typeable
 
+import Prettyprinter
+
 import Hummingbird.Codebase as Codebase
 import Hummingbird.Codebase.Id
 import Hummingbird.Error
-import Hummingbird.Fetch
 import Hummingbird.Name as Name
 import Hummingbird.Surface qualified as Surface
 import Hummingbird.Var

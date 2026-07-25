@@ -1,18 +1,23 @@
 module Hummingbird.Error where
 
+import Prelude
+
 import Control.Exception (Exception)
-import Data.Binary
+import Control.Monad
+import Control.Monad.Catch
 import Data.ContentAddress
 import Data.Hashable
 import Data.Text qualified as Text
-import Prelude
+
 import Prettyprinter
+import Prettyprinter.Render.Terminal
+import Prettyprinter.Render.Text
 
 import Hummingbird.Codebase.Hash
 import Hummingbird.Codebase.Id
-import Hummingbird.Elaboration.Var (Var)
 import Hummingbird.Name as Name
 import Hummingbird.Surface qualified as Surface
+import Hummingbird.Var (Var)
 
 -- |
 data Error
@@ -24,7 +29,7 @@ data Error
     , Generic
     , Show
     )
-  deriving anyclass (Binary, Hashable)
+  deriving anyclass (Hashable)
 
 instance Exception Error
 instance Exception [Error]
@@ -42,7 +47,7 @@ data Elaboration
     , Generic
     , Show
     )
-  deriving anyclass (Binary, Hashable)
+  deriving anyclass (Hashable)
 
 instance Pretty Error where
   pretty = \case
