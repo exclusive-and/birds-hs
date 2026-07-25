@@ -1,7 +1,6 @@
 module Hummingbird.Var where
 
 import Prelude
-import Prettyprinter
 
 import Data.ContentAddress
 import Data.Hashable
@@ -9,6 +8,9 @@ import Data.Map (Map)
 import Data.Map qualified as Map
 import Data.Set (Set)
 import Data.Set qualified as Set
+import Data.Word
+
+import Prettyprinter
 
 import Hummingbird.Builtin as Builtin
 import Hummingbird.Codebase.Hash
@@ -16,7 +18,7 @@ import Hummingbird.Codebase.Id as Codebase
 import Hummingbird.Name (Name)
 import Hummingbird.Name qualified as Name
 
-type Uniq = Int
+type Uniq = Word64
 
 data VarDetails
   = NoInfo
@@ -46,7 +48,7 @@ instance Ord Var where
   compare = compare `on` uniq
 
 instance Hashable Var where
-  hash = uniq
+  hash = hash . uniq
   hashWithSalt = defaultHashWithSalt
 
 instance Pretty Var where
