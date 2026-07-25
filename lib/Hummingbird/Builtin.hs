@@ -28,15 +28,15 @@ instance Hashable Builtin
 
 instance Pretty Builtin where
   pretty = \case
-    Cat -> pretty @Text "cat"
-    Apply -> pretty @Text "apply"
-    Dip -> pretty @Text "dip"
-    Swap -> pretty @Text "swap"
-    Dup -> pretty @Text "dup"
-    Drop -> pretty @Text "drop"
-    K -> pretty @Text "k"
-    Cake -> pretty @Text "cake"
-    Placeholder -> pretty @Text "placeholder"
+    Cat -> "cat"
+    Apply -> "apply"
+    Dip -> "dip"
+    Swap -> "swap"
+    Dup -> "dup"
+    Drop -> "drop"
+    K -> "k"
+    Cake -> "cake"
+    Placeholder -> "placeholder"
 
 builtins :: Map Name Builtin
 builtins = Map.fromList [
